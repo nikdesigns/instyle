@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 import { PageHeader } from "@/components/sections/page-header";
 import { ContactForm } from "@/components/sections/contact-form";
@@ -11,10 +11,9 @@ export const metadata: Metadata = {
 };
 
 const details = [
-  { icon: MapPin, label: "Showroom", value: siteConfig.address },
-  { icon: Phone, label: "Phone", value: siteConfig.phone },
-  { icon: Mail, label: "Email", value: siteConfig.email },
-  { icon: Clock, label: "Hours", value: siteConfig.hours },
+  { icon: MapPin, label: "Headquarters", value: siteConfig.address, href: siteConfig.mapUrl },
+  { icon: Phone, label: "Phone", value: siteConfig.phone, href: `tel:${siteConfig.phone.replace(/[^+\d]/g, "")}` },
+  { icon: Mail, label: "Email", value: siteConfig.email, href: `mailto:${siteConfig.email}` },
 ];
 
 export default function ContactPage() {
@@ -22,8 +21,8 @@ export default function ContactPage() {
     <>
       <PageHeader
         eyebrow="Contact"
-        title="Let's Start Your Project"
-        description="Request a free quote, schedule a showroom visit, or ask us anything about our stone collections."
+        title="Get In Touch"
+        description="Whether you're a fabricator looking for premium slabs, a designer sourcing exotic stones, or a builder planning your next project — our team is here to help. Visit any of our six locations or reach out below."
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -41,7 +40,14 @@ export default function ContactPage() {
                     <detail.icon className="mt-0.5 size-5 shrink-0 text-primary" />
                     <div>
                       <p className="text-sm font-medium">{detail.label}</p>
-                      <p className="text-sm text-muted-foreground">{detail.value}</p>
+                      <a
+                        href={detail.href}
+                        target={detail.href.startsWith("http") ? "_blank" : undefined}
+                        rel={detail.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                        className="text-sm text-muted-foreground hover:text-primary"
+                      >
+                        {detail.value}
+                      </a>
                     </div>
                   </li>
                 ))}
@@ -51,7 +57,7 @@ export default function ContactPage() {
             <div className="aspect-[4/3] overflow-hidden rounded-lg bg-neutral-200">
               <iframe
                 title="InStyle Granite & Marble location"
-                src="https://www.google.com/maps?q=New+York,NY&output=embed"
+                src="https://www.google.com/maps?q=14210+Aston+Street,+Houston,+TX+77040&output=embed"
                 className="h-full w-full border-0"
                 loading="lazy"
               />

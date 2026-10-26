@@ -5,7 +5,7 @@ const features = [
     icon: Gem,
     title: "Premium Slab Selection",
     description:
-      "Hand-picked granite, marble, and quartzite slabs imported from the world's finest quarries.",
+      "Hand-picked granite, marble, quartz, and quartzite slabs sourced from the world's finest quarries and mills.",
   },
   {
     icon: Hammer,

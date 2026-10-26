@@ -6,6 +6,7 @@ export type SearchResult = {
   description: string;
   colors: string[];
   image: string;
+  inStock: boolean;
   category: string;
   categoryName: string;
 };

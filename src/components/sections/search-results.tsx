@@ -7,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 import { SearchBar } from "@/components/layout/search-bar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { StockBadge } from "@/components/ui/stock-badge";
 import { searchProducts } from "@/lib/search";
 
 export function SearchResults() {
@@ -33,7 +34,7 @@ export function SearchResults() {
         <div className="mt-10 rounded-lg border bg-secondary/40 p-8 text-center">
           <p className="font-medium">No matches found.</p>
           <p className="mt-2 text-sm text-muted-foreground">
-            Try searching for a stone type (granite, marble, quartzite) or a
+            Try searching for a stone type (granite, marble, quartz, quartzite) or a
             color like white or black.
           </p>
         </div>
@@ -52,6 +53,7 @@ export function SearchResults() {
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover"
                   />
+                  <StockBadge inStock={product.inStock} className="absolute left-3 top-3" />
                 </div>
                 <CardContent className="pb-6">
                   <p className="text-xs font-semibold uppercase tracking-wide text-primary">

@@ -13,8 +13,8 @@ export default function GalleryPage() {
     <>
       <PageHeader
         eyebrow="Gallery"
-        title="Projects & Inspiration"
-        description="A look at InStyle stone in real kitchens, bathrooms, floors, and commercial spaces."
+        title="Our Warehouses & Showrooms"
+        description="A look inside InStyle Granite & Marble's slab yards across the country — thousands of slabs in stock and ready to see in person."
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <GalleryGrid />

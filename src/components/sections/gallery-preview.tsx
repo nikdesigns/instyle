@@ -4,10 +4,10 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 const images = [
-  "/images/gallery/kitchen-1.svg",
-  "/images/gallery/bathroom-1.svg",
-  "/images/gallery/kitchen-2.svg",
-  "/images/gallery/flooring-1.svg",
+  { src: "/images/locations/houston/houston-1.jpg", alt: "InStyle slab warehouse in Houston, TX" },
+  { src: "/images/locations/denver/denver-3.jpg", alt: "InStyle slab warehouse in Denver, CO" },
+  { src: "/images/locations/nashville/nashville-1.jpg", alt: "InStyle slab warehouse in Nashville, TN" },
+  { src: "/images/locations/columbus/columbus-2.jpg", alt: "InStyle showroom exterior in Columbus, OH" },
 ];
 
 export function GalleryPreview() {
@@ -16,9 +16,9 @@ export function GalleryPreview() {
       <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
-            Inspiration
+            Our Locations
           </p>
-          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">See It Installed</h2>
+          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">See Our Slab Yards</h2>
         </div>
         <Button variant="outline" render={<Link href="/gallery" />}>
           View Full Gallery
@@ -26,11 +26,11 @@ export function GalleryPreview() {
       </div>
 
       <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
-        {images.map((src) => (
-          <div key={src} className="relative aspect-square overflow-hidden rounded-lg bg-neutral-200">
+        {images.map((image) => (
+          <div key={image.src} className="relative aspect-square overflow-hidden rounded-lg bg-neutral-200">
             <Image
-              src={src}
-              alt="InStyle project"
+              src={image.src}
+              alt={image.alt}
               fill
               sizes="(min-width: 1024px) 25vw, 50vw"
               className="object-cover transition-transform duration-500 hover:scale-105"
