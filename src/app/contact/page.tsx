@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 import { PageHeader } from "@/components/sections/page-header";
 import { ContactForm } from "@/components/sections/contact-form";
 import { siteConfig } from "@/data/nav";
+import { getLocationImages } from "@/data/locations";
+
+const showroomImages = getLocationImages("houston", 6);
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -62,6 +66,31 @@ export default function ContactPage() {
                 loading="lazy"
               />
             </div>
+          </div>
+        </div>
+
+        <div className="mt-20">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold sm:text-3xl">Visit Our Showroom</h2>
+            <p className="mt-2 text-muted-foreground">
+              Step inside our Houston headquarters and slab yard.
+            </p>
+          </div>
+          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3">
+            {showroomImages.map((src, i) => (
+              <div
+                key={src}
+                className="relative aspect-square overflow-hidden rounded-lg bg-neutral-200"
+              >
+                <Image
+                  src={src}
+                  alt={`InStyle Houston showroom, photo ${i + 1}`}
+                  fill
+                  sizes="(min-width: 640px) 33vw, 50vw"
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

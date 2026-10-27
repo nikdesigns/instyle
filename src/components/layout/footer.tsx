@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 
-import { mainNav, externalNav, siteConfig } from "@/data/nav";
+import { mainNav, footerNav, externalNav, siteConfig } from "@/data/nav";
 import { categories } from "@/data/products";
 import { locations } from "@/data/locations";
 import { Separator } from "@/components/ui/separator";
@@ -46,6 +46,16 @@ export function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wide">Navigate</h3>
             <ul className="mt-4 space-y-2">
               {mainNav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              {footerNav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}

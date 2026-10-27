@@ -10,6 +10,12 @@ export const externalNav = [
   { label: "Live Inventory", href: "https://instylegm.stoneprofitsweb.com/" },
 ];
 
+// Footer-only links — kept out of the primary header nav to avoid crowding it.
+export const footerNav = [
+  { label: "Journal", href: "/journal" },
+  { label: "FAQ", href: "/faq" },
+];
+
 export const siteConfig = {
   name: "InStyle Granite & Marble",
   shortName: "InStyle",

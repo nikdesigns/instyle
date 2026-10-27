@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { categories, getCategory } from "@/data/products";
 import { StockBadge } from "@/components/ui/stock-badge";
+import { withBasePath } from "@/lib/utils";
 
 export function generateStaticParams() {
   return categories.map((category) => ({ category: category.slug }));
@@ -35,14 +36,27 @@ export default async function CategoryPage({
   return (
     <>
       <section className="relative flex min-h-[46vh] items-end overflow-hidden bg-neutral-900 text-white">
-        <Image
-          src={category.heroImage}
-          alt={category.name}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-70"
-        />
+        {category.heroVideo ? (
+          <video
+            className="absolute inset-0 size-full object-cover opacity-70"
+            src={withBasePath(category.heroVideo)}
+            poster={category.heroImage}
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-hidden
+          />
+        ) : (
+          <Image
+            src={category.heroImage}
+            alt={category.name}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-70"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
         <div className="relative mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">

@@ -12,13 +12,15 @@ const images = [
 
 export function GalleryPreview() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
       <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
-            Our Locations
+          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+            <span className="text-primary">05</span> · Our Locations
           </p>
-          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">See Our Slab Yards</h2>
+          <h2 className="mt-3 text-3xl font-light leading-[1.08] tracking-tight sm:text-4xl lg:text-5xl">
+            See our slab yards
+          </h2>
         </div>
         <Button variant="outline" render={<Link href="/gallery" />}>
           View Full Gallery
